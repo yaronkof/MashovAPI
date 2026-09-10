@@ -117,6 +117,11 @@ def getSchools():
     for school in listOfSchools:
         print(f"{school['name']} -> {school['semel']}")
 
+def getHomework():
+    url = inital.BASEURL + "homework"
+    response = requests.request("GET", url, data=inital.payload(), headers=inital.getHeader('GET'))
+    return json.loads(response.text)
+
 # Todo Timetable
 # Todo Messages
 # ect'
