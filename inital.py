@@ -7,6 +7,7 @@ def payload():
              "password": cfg.mashov["password"],
              "semel":cfg.mashov["semel"],
              "year": cfg.mashov["year"]})
+             "child_guid": "token"
 
 # logins and gets token & cookie
 login = requests.post('https://web.mashov.info/api/login',json=payload())
@@ -22,7 +23,7 @@ def getHeader(method, token=token,cookie=cookie):
     })
 
 #user id
-userid = login.text[127:163]
+userid = cfg.mashov["child_guid"]
 #base url
 BASEURL = "https://web.mashov.info/api/students/"+userid+"/"
 OtherBase = "https://web.mashov.info/api/user/"+userid+"/"
